@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="715.0" minWidth="100.0" prefHeight="161.0" prefWidth="415.0" styleClass="background-color" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gympro.Controller.UserProfileController">
+    <children>
+      <ImageView fitHeight="76.0" fitWidth="432.0" layoutX="-8.0" layoutY="659.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../Elements/Icons/generalBar.png" />
+         </image>
+      </ImageView>
+        <Button fx:id="crossButton" layoutX="380.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarVentana" prefHeight="0.0" prefWidth="16.0" styleClass="crossButton" stylesheets="@../CSS/ButtonsStyle.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="homeButton" layoutX="62.0" layoutY="676.0" mnemonicParsing="false" onAction="#irHome" prefHeight="25.0" prefWidth="25.0" styleClass="homeButton" stylesheets="@../CSS/ButtonsStyle.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button layoutX="331.0" layoutY="676.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="userButton" stylesheets="@../CSS/ButtonsStyle.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="shopButton" layoutX="195.0" layoutY="676.0" mnemonicParsing="false" onAction="#irShop" prefHeight="25.0" prefWidth="25.0" styleClass="bagButton" stylesheets="@../CSS/ButtonsStyle.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+      <ImageView fitHeight="143.0" fitWidth="139.0" layoutX="138.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/ProfileImage.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="2.0" fitWidth="280.0" layoutX="68.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/greyLine.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.49" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="2.0" fitWidth="280.0" layoutX="68.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/greyLine.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.49" />
+         </effect>
+      </ImageView>
+      <Label layoutX="182.0" layoutY="187.0" text="SERFOST" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Black" size="12.0" />
+         </font></Label>
+      <ImageView fitHeight="2.0" fitWidth="280.0" layoutX="68.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/greyLine.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.49" />
+         </effect>
+      </ImageView>
+      <Label layoutX="75.0" layoutY="228.0" prefHeight="14.0" prefWidth="70.0" text="Name" textFill="#82c345">
+         <font>
+            <Font name="Segoe UI" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="75.0" layoutY="242.0" prefHeight="17.0" prefWidth="280.0" text="Steve" textAlignment="CENTER" textFill="WHITE" />
+      <Label layoutX="75.0" layoutY="265.0" prefHeight="14.0" prefWidth="70.0" text="Email" textFill="#82c345">
+         <font>
+            <Font name="Segoe UI" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="75.0" layoutY="276.0" prefHeight="17.0" prefWidth="274.0" text="gymprouser@gmail.com" textAlignment="CENTER" textFill="WHITE" />
+      <ImageView fitHeight="2.0" fitWidth="79.0" layoutX="68.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/greyLine.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.49" />
+         </effect>
+      </ImageView>
+      <Label layoutX="75.0" layoutY="305.0" prefHeight="14.0" prefWidth="59.0" text="Birth" textFill="#82c345">
+         <font>
+            <Font name="Segoe UI" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="75.0" layoutY="320.0" prefHeight="17.0" prefWidth="70.0" text="09/11/2004" textAlignment="CENTER" textFill="WHITE" />
+      <ImageView fitHeight="1.0" fitWidth="86.0" layoutX="263.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/greyLine.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.49" />
+         </effect>
+      </ImageView>
+      <Label layoutX="270.0" layoutY="305.0" prefHeight="14.0" prefWidth="59.0" text="Weight" textFill="#82c345">
+         <font>
+            <Font name="Segoe UI" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="270.0" layoutY="320.0" prefHeight="17.0" prefWidth="70.0" text="105.30Kg" textAlignment="CENTER" textFill="WHITE" />
+      <ImageView fitHeight="2.0" fitWidth="79.0" layoutX="168.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/greyLine.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.49" />
+         </effect>
+      </ImageView>
+      <Label layoutX="175.0" layoutY="305.0" prefHeight="14.0" prefWidth="52.0" text="Age" textFill="#82c345">
+         <font>
+            <Font name="Segoe UI" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="175.0" layoutY="320.0" prefHeight="17.0" prefWidth="70.0" text="19 years" textAlignment="CENTER" textFill="WHITE" />
+      <ImageView fitHeight="1.0" fitWidth="181.0" layoutX="69.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/greyLine.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.49" />
+         </effect>
+      </ImageView>
+      <Label layoutX="75.0" layoutY="346.0" prefHeight="14.0" prefWidth="59.0" text="Adress" textFill="#82c345">
+         <font>
+            <Font name="Segoe UI" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="75.0" layoutY="360.0" prefHeight="17.0" prefWidth="156.0" text="calle azurita 2" textAlignment="CENTER" textFill="WHITE" />
+      <ImageView fitHeight="2.0" fitWidth="86.0" layoutX="263.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/greyLine.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.49" />
+         </effect>
+      </ImageView>
+      <Label layoutX="270.0" layoutY="346.0" prefHeight="14.0" prefWidth="59.0" text="Postal code" textFill="#82c345">
+         <font>
+            <Font name="Segoe UI" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="270.0" layoutY="360.0" prefHeight="17.0" prefWidth="79.0" text="28260" textAlignment="CENTER" textFill="WHITE" />
+      <ImageView fitHeight="2.0" fitWidth="86.0" layoutX="72.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/greyLine.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.49" />
+         </effect>
+      </ImageView>
+      <Label layoutX="75.0" layoutY="386.0" prefHeight="14.0" prefWidth="59.0" text="Telephone" textFill="#82c345">
+         <font>
+            <Font name="Segoe UI" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="75.0" layoutY="400.0" prefHeight="17.0" prefWidth="86.0" text="620444578" textAlignment="CENTER" textFill="WHITE" />
+      <ImageView fitHeight="2.0" fitWidth="79.0" layoutX="175.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/greyLine.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.49" />
+         </effect>
+      </ImageView>
+      <Label layoutX="175.0" layoutY="386.0" prefHeight="14.0" prefWidth="59.0" text="DNI" textFill="#82c345">
+         <font>
+            <Font name="Segoe UI" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="175.0" layoutY="400.0" prefHeight="17.0" prefWidth="79.0" text="54285988Z" textAlignment="CENTER" textFill="WHITE" />
+      <ImageView fitHeight="2.0" fitWidth="79.0" layoutX="270.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/greyLine.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.49" />
+         </effect>
+      </ImageView>
+      <Label layoutX="270.0" layoutY="386.0" prefHeight="14.0" prefWidth="59.0" text="Genre" textFill="#82c345">
+         <font>
+            <Font name="Segoe UI" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="270.0" layoutY="400.0" prefHeight="17.0" prefWidth="79.0" text="Male" textAlignment="CENTER" textFill="WHITE" />
+      <Button fx:id="signOutButton" layoutX="165.0" layoutY="592.0" mnemonicParsing="false" onAction="#irLogin" prefHeight="31.0" prefWidth="86.0" styleClass="signOutButton" stylesheets="@../CSS/ButtonsStyle.css" text="Sign Out">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Segoe UI Black" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="subscriptionButton" layoutX="87.0" layoutY="476.0" mnemonicParsing="false" onAction="#irSubscription" prefHeight="64.0" prefWidth="246.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css">
+         <graphic>
+            <Pane prefHeight="56.0" prefWidth="102.0">
+               <children>
+                  <ImageView fitHeight="78.0" fitWidth="236.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Elements/Icons/GreyRectangle.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="6.0" layoutY="14.0" prefHeight="20.0" prefWidth="209.0" text="Expand your subscription" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="6.0" layoutY="34.0" prefHeight="17.0" prefWidth="209.0" text="Your subscripcion ends: 10/11/2025" textFill="#82c345">
+                     <font>
+                        <Font name="Segoe UI" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+    </children>
+</AnchorPane>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="715.0" minWidth="100.0" prefHeight="161.0" prefWidth="415.0" styleClass="background-color" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gympro.Controller.UserSubscribeController">
+    <children>
+        <ImageView fitHeight="383.0" fitWidth="415.0" pickOnBounds="true">
+            <image>
+                <Image url="@../Elements/BackGrounds/SubscribeBackGround.png" />
+            </image>
+            <effect>
+                <BoxBlur />
+            </effect>
+        </ImageView>
+        <Button layoutX="102.0" layoutY="612.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="213.0" styleClass="buttonColorVerde" stylesheets="@../CSS/ButtonsStyle.css" text="Subscribe Now">
+            <font>
+                <Font size="16.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Label layoutX="35.0" layoutY="126.0" text="BE PREMIUM" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="45.0" />
+            </font>
+        </Label>
+        <Label layoutX="35.0" layoutY="182.0" text="Subscribe to access the best gym in the world" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="16.0" />
+            </font>
+        </Label>
+      <RadioButton layoutX="65.0" layoutY="373.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="265.0" styleClass="subButton" stylesheets="@../CSS/ButtonsStyle.css">
+         <graphic>
+              <Pane accessibleRole="RADIO_BUTTON" prefHeight="68.0" prefWidth="249.0">
+                  <children>
+                      <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="-5.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../Elements/Icons/PesaBronce.png" />
+                          </image>
+                      </ImageView>
+                      <Label layoutX="41.0" layoutY="15.0" prefHeight="23.0" prefWidth="101.0" styleClass="monthly" stylesheets="@../CSS/ButtonsStyle.css" text="Monthly:" textFill="WHITE">
+                          <font>
+                              <Font name="Arial Black" size="12.0" />
+                          </font>
+                      </Label>
+                      <Label layoutX="41.0" layoutY="26.0" prefHeight="25.0" prefWidth="124.0" stylesheets="@../CSS/ButtonsStyle.css" text="Pay monthly, cancel any time " textFill="WHITE">
+                          <font>
+                              <Font name="Calibri" size="10.0" />
+                          </font>
+                      </Label>
+                      <Label layoutX="178.0" layoutY="20.0" text="29.99€" textFill="WHITE">
+                          <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                          </font>
+                      </Label>
+                  </children>
+                  <cursor>
+                      <Cursor fx:constant="HAND" />
+                  </cursor>
+              </Pane>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <toggleGroup>
+            <ToggleGroup fx:id="SelectButton" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="65.0" layoutY="445.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="265.0" styleClass="subButton" stylesheets="@../CSS/ButtonsStyle.css" toggleGroup="$SelectButton">
+         <graphic>
+              <Pane accessibleRole="RADIO_BUTTON" prefHeight="52.0" prefWidth="249.0">
+                  <children>
+                      <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="-5.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../Elements/Icons/PesaPlata.png" />
+                          </image>
+                      </ImageView>
+                      <Label layoutX="40.0" layoutY="15.0" prefHeight="23.0" prefWidth="101.0" text="Three months:" textFill="WHITE">
+                          <font>
+                              <Font name="Arial Black" size="12.0" />
+                          </font>
+                      </Label>
+                      <Label layoutX="40.0" layoutY="26.0" prefHeight="25.0" prefWidth="115.0" text="Pay for 3 complete months" textFill="WHITE">
+                          <font>
+                              <Font name="Calibri" size="10.0" />
+                          </font>
+                      </Label>
+                      <Label layoutX="178.0" layoutY="21.0" text="79.99€" textFill="WHITE">
+                          <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                          </font>
+                      </Label>
+                  </children>
+                  <cursor>
+                      <Cursor fx:constant="HAND" />
+                  </cursor>
+              </Pane>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="nothanksb" layoutX="154.0" layoutY="670.0" mnemonicParsing="false" onAction="#irAtras" prefHeight="17.0" prefWidth="93.0" styleClass="noThanks" stylesheets="@../CSS/ButtonsStyle.css" text="No, thanks" textFill="#ababab" toggleGroup="$SelectButton">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton layoutX="65.0" layoutY="525.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="265.0" styleClass="subButton" stylesheets="@../CSS/ButtonsStyle.css" toggleGroup="$SelectButton">
+         <graphic>
+              <Pane accessibleRole="RADIO_BUTTON" prefHeight="52.0" prefWidth="249.0">
+                  <children>
+                      <ImageView id="as" fitHeight="59.0" fitWidth="249.0" layoutX="2.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                          <image>
+                              <Image url="@../Elements/Icons/RectangleSubscribe.png" />
+                          </image>
+                      </ImageView>
+                      <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="-5.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../Elements/Icons/PesaOro.png" />
+                          </image>
+                      </ImageView>
+                      <Label layoutX="45.0" layoutY="14.0" prefHeight="23.0" prefWidth="63.0" text="One year:" textFill="WHITE">
+                          <font>
+                              <Font name="Arial Black" size="12.0" />
+                          </font>
+                      </Label>
+                      <Label layoutX="45.0" layoutY="25.0" prefHeight="25.0" prefWidth="136.0" text="Pay the best price, a full year" textFill="WHITE">
+                          <font>
+                              <Font name="Calibri" size="10.0" />
+                          </font>
+                      </Label>
+                      <Label layoutX="176.0" layoutY="21.0" text="299.99€" textFill="WHITE">
+                          <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                          </font>
+                      </Label>
+                  </children>
+                  <cursor>
+                      <Cursor fx:constant="HAND" />
+                  </cursor>
+              </Pane>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <Button fx:id="crossButton" layoutX="380.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarVentana" prefHeight="0.0" prefWidth="16.0" styleClass="crossButton" stylesheets="@../CSS/ButtonsStyle.css">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+    </children>
+</AnchorPane>

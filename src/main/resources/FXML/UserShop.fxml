@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="715.0" minWidth="100.0" prefHeight="161.0" prefWidth="415.0" styleClass="background-color" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gympro.Controller.UserShopController">
+    <children>
+        <ImageView fitHeight="76.0" fitWidth="432.0" layoutX="-8.0" layoutY="659.0" pickOnBounds="true" smooth="false">
+            <image>
+                <Image url="@../Elements/Icons/generalBar.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="crossButton" layoutX="380.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarVentana" prefHeight="0.0" prefWidth="16.0" styleClass="crossButton" stylesheets="@../CSS/ButtonsStyle.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="homeButton" layoutX="62.0" layoutY="676.0" mnemonicParsing="false" onAction="#irHome" prefHeight="25.0" prefWidth="25.0" styleClass="homeButton" stylesheets="@../CSS/ButtonsStyle.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="profileButton" layoutX="331.0" layoutY="676.0" mnemonicParsing="false" onAction="#irProfile" prefHeight="25.0" prefWidth="25.0" styleClass="userButton" stylesheets="@../CSS/ButtonsStyle.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button layoutX="195.0" layoutY="676.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="bagButton" stylesheets="@../CSS/ButtonsStyle.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+      <Label layoutX="96.0" layoutY="232.0" text="COMING SOON" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Black" size="30.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="715.0" minWidth="100.0" prefHeight="161.0" prefWidth="415.0" styleClass="background-color" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gympro.Controller.UserWeightFindController">
+    <children>
+        <Button layoutX="62.0" layoutY="606.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="78.0" styleClass="backButton" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button layoutX="154.0" layoutY="622.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="buttonColorVerde" stylesheets="@../CSS/ButtonsStyle.css" text="Continue &gt;">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Label layoutX="107.0" layoutY="196.0" text="Write your weight in Kg below:" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Label>
+      <Label layoutX="136.0" layoutY="144.0" text="To finish the sign up process..." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Label>
+      <TextField alignment="CENTER" layoutX="120.0" layoutY="228.0" prefHeight="108.0" prefWidth="176.0" promptText="45Kg">
+         <font>
+            <Font size="50.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Label layoutX="141.0" layoutY="414.0" text="How did you know us?" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+        <ChoiceBox layoutX="84.0" layoutY="478.0" prefHeight="45.0" prefWidth="260.0" stylesheets="@../CSS/style.css">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="I see it in Youtube" />
+                    <String fx:value="I see it in TikTok" />
+                    <String fx:value="I see it in Google Adds" />
+                    <String fx:value="I see a local gym" />
+                    <String fx:value="Someone recommend it to me" />
+                    <String fx:value="Other" />
+                </FXCollections>
+            </items>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </ChoiceBox>
+      <ImageView fitHeight="134.0" fitWidth="130.0" layoutX="143.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/Icons/Logo.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="crossButton" layoutX="385.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarVentana" prefHeight="0.0" prefWidth="16.0" styleClass="crossButton" stylesheets="@../CSS/ButtonsStyle.css">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+    </children>
+</AnchorPane>

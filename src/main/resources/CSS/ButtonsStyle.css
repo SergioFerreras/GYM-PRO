@@ -1,0 +1,321 @@
+.botonTransparente{
+    -fx-background-size:contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+
+.botonforgotPass{
+    -fx-background-size:contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-text-fill: #82c345;
+}
+
+.botonforgotPass:hover {
+    -fx-background-size:contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-text-fill: #c0c0c0;
+}
+
+
+
+/*
+estilo para el boton SignUp seleccionado
+ */
+.loginSingupSelected {
+    -fx-background-color: transparent; /* Eliminamos el color de fondo */
+    -fx-background-image: url('../Elements/Buttons/Selection.png'); /* Establecemos la imagen como fondo */
+    -fx-background-repeat: no-repeat; /* Evitamos que la imagen se repita */
+    -fx-background-position: bottom; /* Centramos la imagen */
+    -fx-content-display: center; /* Colocamos el contenido (texto e imagen) en la parte superior */
+    -fx-padding: 5px 10px; /* Espacio alrededor del texto */
+}
+
+
+
+/*
+estilos para los botones verdes
+ */
+
+.buttonColorVerde{
+    -fx-background-color: #3A3A3C; /* Color de fondo */
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 20; /* Radio de los bordes */
+}
+
+.buttonColorVerde:hover{
+    -fx-background-color: #82c345; /* Color de fondo */
+    -fx-text-fill: #000000;
+    -fx-background-radius: 20; /* Radio de los bordes */
+}
+
+
+
+/*
+estilos para el boton hacia atras
+ */
+.backButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Buttons/backButtonOff.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+}
+
+.backButton:hover{
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Buttons/backButtonOn.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+}
+
+
+
+/*
+Esta parte del css es para el FXML UserGenre.fxml para editar el boton hombre
+ */
+
+.maleButton {
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/MaleOff.png');
+    -fx-text-fill: #ffffff;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+    -fx-padding: 0 0 -65 0;
+    transition: background-image 0.3s;
+}
+
+.maleButton:hover {
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/MaleOn.png');
+    -fx-text-fill: #000000;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-padding: 0 0 -65 0;
+    -fx-content-display: center;
+}
+
+.maleButton:focused {
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/MaleOn.png');
+    -fx-text-fill: #000000;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-padding: 0 0 -65 0;
+    -fx-content-display: center;
+}
+
+.maleButton .radio {
+    -fx-background-color: transparent;
+}
+
+.maleButton .radio > .dot {
+    -fx-background-color: transparent;
+}
+
+
+/*
+Esta parte del css es para el FXML UserGenre.fxml para editar el boton mujer
+ */
+
+.famaleButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/FamaleOff.png');
+    -fx-text-fill: #ffffff;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+    transition: background-image 0.3s;
+}
+
+.famaleButton:hover {
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/FamaleOn.png');
+    -fx-text-fill: #000000;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+}
+
+.famaleButton:focused {
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/FamaleOn.png');
+    -fx-text-fill: #000000;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+}
+
+.famaleButton .radio {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+.famaleButton .radio > .dot {
+    -fx-background-color: transparent;
+}
+
+
+
+
+/*
+Estilos para la cruz
+ */
+
+.crossButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Buttons/CrossGrey.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+}
+
+.crossButton:hover{
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Buttons/CrossRed.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+}
+
+
+
+/* Estilo para los RadioButtons */
+.noThanks {
+    -fx-padding: 0; /* Elimina el espacio interior */
+    -fx-text-fill: #9a9a9a;
+}
+
+.noThanks:hover {
+    -fx-text-fill: #cc1919;
+}
+
+/* Estilo para el círculo predeterminado */
+.noThanks .radio {
+    -fx-background-color: transparent; /* Establece el color de fondo del círculo como transparente */
+}
+
+/* Estilo para el marcador de verificación dentro del círculo */
+.noThanks .radio > .dot {
+    -fx-background-color: transparent; /* Establece el color del marcador de verificación como transparente */
+}
+
+
+
+/*
+Elementos subscripcion
+ */
+/* Elimina el círculo predeterminado */
+.subButton .radio {
+    -fx-background-color: transparent;
+}
+
+/* Estilo para el marcador de verificación dentro del círculo */
+.subButton .radio > .dot {
+    -fx-background-color: transparent;
+}
+
+.subButton  {
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/RectangleSubscribe.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+    -fx-background-size: cover;
+}
+
+.subButton:hover {
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/RectangleSubsribeGreen.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+    -fx-background-size: cover;
+}
+
+.subButton:selected {
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/RectangleSubsribeGreen.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+    -fx-background-size: cover;
+}
+
+.homeButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/home.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+    -fx-background-size: cover;
+}
+
+.homeButton:hover{
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/homeOn.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+    -fx-background-size: cover;
+}
+
+.userButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/user.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+    -fx-background-size: cover;
+}
+
+.userButton:hover{
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/userOn.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+    -fx-background-size: cover;
+}
+
+.bagButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/shoppingBag.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+    -fx-background-size: cover;
+}
+
+.bagButton:hover{
+    -fx-background-color: transparent;
+    -fx-background-image: url('../Elements/Icons/shoppingBagOn.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-content-display: center;
+    -fx-background-size: cover;
+}
+
+.signOutButton{
+    -fx-background-color: #d72b2b; /* Color de fondo */
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 20; /* Radio de los bordes */
+}
+
+.signOutButton:hover {
+    -fx-background-color: #ffffff; /* Color de fondo */
+    -fx-text-fill: #d72b2b;
+    -fx-background-radius: 20; /* Radio de los bordes */
+}
+
+
+
+
+
+

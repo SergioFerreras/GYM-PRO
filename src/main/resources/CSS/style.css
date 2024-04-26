@@ -1,0 +1,115 @@
+.centrado{
+    -fx-alignment: center;
+}
+
+.background-color {
+    -fx-background-color: #010C10;
+}
+
+.text-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #595959;
+    -fx-text-fill: #b0b0b0;
+}
+
+.text-field:focused {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #82C345;
+    -fx-text-fill: #b0b0b0;
+}
+
+.date-picker {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #595959;
+    -fx-text-fill: #b0b0b0;
+    -fx-background-image: url('../Elements/Icons/Calendar.png'); /* Utiliza tu imagen de calendario verde */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right center; /* Ajusta la posición del icono */
+    -fx-padding: 0 -1 0 0; /* Ajusta el relleno para que el texto no se superponga con el icono */
+}
+
+/* Estilo para el DatePicker cuando está enfocado */
+.date-picker:focused {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #82C345;
+    -fx-text-fill: #b0b0b0;
+}
+
+
+
+
+/*Estos son los codigos para el choice box*/
+
+.choice-box {
+    -fx-background-color: transparent; /* Color de fondo del ChoiceBox */
+    fx-text-alignment: center;
+    -fx-border-color: #595959; /* Color del borde */
+    -fx-border-width: 0 0 1 0; /* Grosor del borde inferior */
+}
+
+.choice-box .label {
+    -fx-text-alignment: center;
+    -fx-font-size: 20px;
+    -fx-text-fill: #b0b0b0; /* Color del texto */
+}
+
+.choice-box .arrow {
+    -fx-background-color: transparent; /* Color del fondo del botón de desplegar */
+    -fx-background-insets: 0;
+    fx-text-alignment: center;
+}
+
+.choice-box .box {
+    -fx-border-width: 0 0 1 0; /* Grosor del borde inferior */
+    fx-text-alignment: center;
+    -fx-border-color: #595959; /* Color del borde */
+
+}
+
+.choice-box .arrow-button {
+    -fx-background-color: transparent; /* Color del fondo del botón de desplegar */
+    -fx-padding: 0;
+    fx-text-alignment: center;
+}
+
+.choice-box .context-menu {
+    -fx-background-color: #010C10; /* Color de fondo del menú desplegable */
+    fx-text-alignment: center;
+    -fx-border-color: #595959; /* Color del borde del menú desplegable */
+}
+
+.choice-box .menu-item {
+    -fx-background-color: transparent; /* Color de fondo de los elementos del menú desplegable */
+    -fx-text-fill: #b0b0b0; /* Color del texto de los elementos del menú desplegable */
+    fx-text-alignment: center;
+}
+
+.choice-box .menu-item:hover {
+    fx-text-alignment: center;
+    -fx-background-color: #08221F; /* Color de fondo al pasar el ratón sobre los elementos del menú desplegable */
+}
+
+.textArea {
+    border: none;
+    outline: none;
+    resize: none; /* Evita que el usuario pueda redimensionar el textarea */
+    background-color: transparent; /* Hace que el fondo sea transparente */
+    overflow: hidden; /* Oculta cualquier contenido que exceda el tamaño del textarea */
+    pointer-events: none; /* Evita eventos de ratón y teclado en el textarea */
+    user-select: none; /* Evita que el usuario seleccione el contenido */
+    white-space: pre-wrap; /* Mantiene el formato del texto original */
+}
+
+
+
+
+
+
+
+
+
+
