@@ -29,7 +29,27 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="53.0" layoutY="167.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button layoutX="83.0" layoutY="118.0" mnemonicParsing="false" styleClass="buttonColorVerde" stylesheets="@../CSS/ButtonsStyle.css" text="Morning">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="afternoonButton" layoutX="180.0" layoutY="118.0" mnemonicParsing="false" onAction="#irAfternoonA" styleClass="buttonColorVerde" stylesheets="@../CSS/ButtonsStyle.css" text="Afternoon">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="nightButton" layoutX="295.0" layoutY="118.0" mnemonicParsing="false" onAction="#irNightA" styleClass="buttonColorVerde" stylesheets="@../CSS/ButtonsStyle.css" text="Night">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="102.0" layoutY="71.0" text="MORNING TRAINING" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Black" size="20.0" />
+         </font>
+      </Label>
+        <Button layoutX="50.0" layoutY="170.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -61,27 +81,7 @@
                 </Pane>
             </graphic>
         </Button>
-      <Button layoutX="83.0" layoutY="118.0" mnemonicParsing="false" styleClass="buttonColorVerde" stylesheets="@../CSS/ButtonsStyle.css" text="Morning">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="afternoonButton" layoutX="180.0" layoutY="118.0" mnemonicParsing="false" onAction="#irAfternoonA" styleClass="buttonColorVerde" stylesheets="@../CSS/ButtonsStyle.css" text="Afternoon">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="nightButton" layoutX="295.0" layoutY="118.0" mnemonicParsing="false" onAction="#irNightA" styleClass="buttonColorVerde" stylesheets="@../CSS/ButtonsStyle.css" text="Night">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Label layoutX="102.0" layoutY="71.0" text="MORNING TRAINING" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Black" size="20.0" />
-         </font>
-      </Label>
-      <Button layoutX="225.0" layoutY="167.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button layoutX="235.0" layoutY="170.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -113,7 +113,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button layoutX="53.0" layoutY="358.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button layoutX="50.0" layoutY="350.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -145,7 +145,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button layoutX="225.0" layoutY="358.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button layoutX="235.0" layoutY="350.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -177,7 +177,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button layoutX="53.0" layoutY="527.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button layoutX="50.0" layoutY="530.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -209,7 +209,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button layoutX="225.0" layoutY="527.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button layoutX="235.0" layoutY="530.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

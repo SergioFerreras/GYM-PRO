@@ -11,8 +11,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.example.gympro.Clases.User;
+import org.example.gympro.Database.DataBaseController;
+import org.example.gympro.DateController.DateController;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 public class UserSignUpController {
     private User user;
@@ -48,8 +50,6 @@ public class UserSignUpController {
     @FXML
     private Button crossButton;
 
-
-
     @FXML
     private void irLogin(ActionEvent event) {
         try {
@@ -74,29 +74,41 @@ public class UserSignUpController {
 
     @FXML
     private void continuar(){
+        DataBaseController dbc= new DataBaseController();
+
         if (algunovacio()){
             showPopUpWindow("Rellena todos los campos para continuar");
         }else{
             if (!passwordTF.getText().equals(cpasswordTF.getText())){
                 showPopUpWindow("La contraseña no esta confirmada");
             }else {
-                crearUsuario();
-                user.setUsername(usernameTF.getText());
-                user.setNombre_usuario(nameTF.getText());
-                user.setApellidos_usuario(usernameTF.getText());
-                user.setContraseña(passwordTF.getText());
-                user.setEmail_usuario(emailTF.getText());
-                user.setTelefono_usuario(telphonenTF.getText());
-                user.setDireccion_usuario(adressTF.getText());
-                user.setCodigo_postal_usuario(pcodeTF.getText());
-                user.setDni_usuario(dniTF.getText());
-                user.setFecha_nacimiento_usuario(birthTF.getValue());
-                user.setEs_administrador(false);
-                user.setEsta_subscrito(false);
+                if (dbc.existeUsername(usernameTF.getText())){
+                    showPopUpWindow("El nombre de usuario ya esta usado");
+                } else if (dbc.existeEmail(emailTF.getText())) {
+                    showPopUpWindow("Este email esta usado en otra cuenta");
+                }else if (dbc.existeTelefono(telphonenTF.getText())) {
+                    showPopUpWindow("Este numero de telefono esta usado en otra cuenta");
+                }else if (dbc.existeDNI(dniTF.getText())) {
+                    showPopUpWindow("El dni esta asignado a otra cuenta");
+                }else {
+                    try{
+                        user.setUsername(usernameTF.getText());
+                        user.setNombre_usuario(nameTF.getText());
+                        user.setApellidos_usuario(surnameTF.getText());
+                        user.setContrasena(cpasswordTF.getText());
+                        user.setEmail_usuario(emailTF.getText());
+                        user.setTelefono_usuario(telphonenTF.getText());
+                        user.setDireccion_usuario(adressTF.getText());
+                        user.setCodigo_postal_usuario(pcodeTF.getText());
+                        user.setDni_usuario(dniTF.getText());
+                        user.setFecha_nacimiento_usuario(Date.valueOf(birthTF.getValue()));
+                        user.setEdad_usuario(user.getFecha_nacimiento_usuario());
 
-                System.out.println(user.toString());
-
-                nextPage("/FXML/UserGenre.fxml");
+                        nextPage("/FXML/UserGenre.fxml");
+                    }catch (Exception e){
+                        showPopUpWindow(e.getMessage());
+                    }
+                }
             }
         }
     }
@@ -107,7 +119,7 @@ public class UserSignUpController {
 
     public void showPopUpWindow(String text){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PopUpWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PopUpWindowBad.fxml"));
             Parent dialogParent = loader.load();
             Scene dialogScene = new Scene(dialogParent);
 
@@ -132,6 +144,9 @@ public class UserSignUpController {
             Parent otraPaginaParent = loader.load();
             Scene otraPaginaScene = new Scene(otraPaginaParent);
 
+            UserGenreController controller = loader.getController();
+            controller.setUser(getUser());
+
             Stage escenarioActual = (Stage) continueButton.getScene().getWindow();
             escenarioActual.setScene(otraPaginaScene);
         } catch (Exception e) {
@@ -141,8 +156,28 @@ public class UserSignUpController {
         }
     }
 
-    private void crearUsuario(){
-        this.user=new User();
+    public void recuperarDatos(){
+        user.setEs_hombre(null);
+        user.setEdad_usuario(null);
+
+        usernameTF.setText(user.getUsername());
+        nameTF.setText(user.getNombre_usuario());
+        surnameTF.setText(user.getApellidos_usuario());
+        passwordTF.setText(user.getContrasena());
+        cpasswordTF.setText(user.getContrasena());
+        emailTF.setText(user.getEmail_usuario());
+        telphonenTF.setText(user.getTelefono_usuario());
+        adressTF.setText(user.getDireccion_usuario());
+        pcodeTF.setText(user.getCodigo_postal_usuario());
+        dniTF.setText(user.getDni_usuario());
+        birthTF.setValue(user.getFecha_nacimiento_usuario().toLocalDate());
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

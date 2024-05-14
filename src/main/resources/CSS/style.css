@@ -6,6 +6,10 @@
     -fx-background-color: #010C10;
 }
 
+.gris {
+    -fx-background-color: #292c2c;
+}
+
 .text-field {
     -fx-background-color: transparent;
     -fx-border-width: 0 0 1 0;

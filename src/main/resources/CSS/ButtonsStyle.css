@@ -53,8 +53,6 @@ estilos para los botones verdes
     -fx-background-radius: 20; /* Radio de los bordes */
 }
 
-
-
 /*
 estilos para el boton hacia atras
  */
@@ -315,7 +313,36 @@ Elementos subscripcion
 }
 
 
+.buttonConfirmar{
+    -fx-background-color: #82c345; /* Color de fondo */
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 20; /* Radio de los bordes */
+}
 
+.buttonConfirmar:hover{
+    -fx-background-color: #ffffff; /* Color de fondo */
+    -fx-text-fill: #82c345;
+    -fx-background-radius: 20; /* Radio de los bordes */
+}
 
+.buttonCancelar{
+    -fx-background-color: #e30000; /* Color de fondo */
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 20; /* Radio de los bordes */
+}
 
+.buttonCancelar:hover{
+    -fx-background-color: #ffffff; /* Color de fondo */
+    -fx-text-fill: #e30000;
+    -fx-background-radius: 20; /* Radio de los bordes */
+}
 
+.nothanks2{
+    -fx-text-fill: #9a9a9a;
+    -fx-background-color: transparent;
+}
+
+.nothanks2:hover{
+    -fx-text-fill: #cc1919;
+    -fx-background-color: transparent;
+}

@@ -12,9 +12,9 @@ import javafx.stage.StageStyle;
 import org.example.gympro.Clases.User;
 import org.example.gympro.Database.DataBaseController;
 
-import java.io.IOException;
-
 public class UserLoginController {
+
+    User user;
 
     @FXML
     private TextField usernameTextField;
@@ -34,9 +34,6 @@ public class UserLoginController {
     @FXML
     private Button crossButton;
 
-
-
-
     @FXML
     private void irSingUp(ActionEvent event) {
         signupPage("/FXML/UserSingUp.fxml");
@@ -53,8 +50,6 @@ public class UserLoginController {
         String username=usernameTextField.getText();
         String password=passwordTextField.getText();
 
-
-
         if (vacio(username)){
             showPopUpWindow("Escribe tu nombre de usuario");
         }else {
@@ -65,14 +60,12 @@ public class UserLoginController {
                 User user=dbc.seleccionarUserCompleto(username);
 
                 if (user==null){
-                    System.out.println("No se ha encontrado ningun usuario con el username: "+username);
-                    showPopUpWindow("Nombre de usuario o contraseña incorrecta");
+                    showPopUpWindow("No se ha encontrado ningun usuario con el username: "+username);
                 }else{
-                    if (user.getContraseña().equals(password)){
-                        System.out.println("puedes acceder");
+                    if (user.getContrasena().equals(password)){
+                        setUser(user);
                         gohomepage("/FXML/UserHome.fxml");
                     }else{
-                        System.out.println("contraseña incorrecta");
                         showPopUpWindow("Nombre de usuario o contraseña incorrecta");
                     }
                 }
@@ -83,7 +76,7 @@ public class UserLoginController {
 
     public void showPopUpWindow(String text){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PopUpWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PopUpWindowBad.fxml"));
             Parent dialogParent = loader.load();
             Scene dialogScene = new Scene(dialogParent);
 
@@ -110,7 +103,7 @@ public class UserLoginController {
             Scene otraPaginaScene = new Scene(otraPaginaParent);
 
             UserHomeController controller = loader.getController();
-            controller.setUsername(usernameTextField.getText()); // Establecer el nombre de usuario en UserHomeController
+            controller.setUser(getUser());
 
             Stage escenarioActual = (Stage) signUpButton.getScene().getWindow();
             escenarioActual.setScene(otraPaginaScene);
@@ -127,6 +120,11 @@ public class UserLoginController {
             Parent otraPaginaParent = loader.load();
             Scene otraPaginaScene = new Scene(otraPaginaParent);
 
+            User usere=new User();
+
+            UserSignUpController controller = loader.getController();
+            controller.setUser(usere);
+
             Stage escenarioActual = (Stage) signUpButton.getScene().getWindow();
             escenarioActual.setScene(otraPaginaScene);
         } catch (Exception e) {
@@ -141,6 +139,16 @@ public class UserLoginController {
             return true;
         }
         return false;
+    }
+
+    public void setUser(User user){
+        this.user=user;
+        user.setSuscrito();
+
+    }
+
+    public User getUser(){
+        return this.user;
     }
 
 

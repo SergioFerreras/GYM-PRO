@@ -34,7 +34,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="34.0" layoutY="71.0" prefHeight="15.0" prefWidth="111.0" text="Good morning" textFill="WHITE">
+      <Label fx:id="daygoodLabel" layoutX="34.0" layoutY="71.0" prefHeight="15.0" prefWidth="111.0" text="Good morning" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="12.0" />
          </font>
@@ -44,7 +44,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="reserveActivityButton" layoutX="52.0" layoutY="123.0" mnemonicParsing="false" onAction="#irReserveActivity" prefHeight="158.0" prefWidth="312.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button fx:id="reserveActivityButton" layoutX="52.0" layoutY="110.0" mnemonicParsing="false" onAction="#irReserveActivity" prefHeight="158.0" prefWidth="312.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -76,7 +76,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button fx:id="myGymButton" layoutX="52.0" layoutY="474.0" mnemonicParsing="false" onAction="#irMyGym" prefHeight="158.0" prefWidth="312.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button fx:id="myGymButton" layoutX="52.0" layoutY="470.0" mnemonicParsing="false" onAction="#irMyGym" prefHeight="158.0" prefWidth="312.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -108,7 +108,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button fx:id="myRutinesButton" layoutX="52.0" layoutY="298.0" mnemonicParsing="false" onAction="#irRutines" prefHeight="158.0" prefWidth="312.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button fx:id="myRutinesButton" layoutX="52.0" layoutY="290.0" mnemonicParsing="false" onAction="#irRutines" prefHeight="158.0" prefWidth="312.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -140,5 +140,69 @@
             </Pane>
          </graphic>
       </Button>
+      <Pane fx:id="PanelUnsuscribed" layoutX="73.0" layoutY="218.0" prefHeight="279.0" prefWidth="269.0" visible="false">
+         <children>
+            <ImageView fitHeight="278.0" fitWidth="329.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Elements/Buttons/POPUPRectangle.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="74.0" layoutY="131.0" text="Your not suscribed" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="150.0" text="If you want to have unlimited acces..." textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="180.0" text="1. Go to Profile Page" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="-7.0" layoutY="75.0" prefHeight="44.0" prefWidth="284.0" styleClass="centrado" stylesheets="@../CSS/style.css" text="BE PREMIUM" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="197.0" text="2. Press suscription button" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="214.0" text="3. Choose your plan" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="231.0" text="4. Pay the suscription" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="248.0" text="5. Enjoy your unlimited acces" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="76.0" fitWidth="81.0" layoutX="98.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Elements/Icons/GYMPROCircle.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="44.0" layoutX="147.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Elements/Icons/rectangleSubscribed.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="150.0" layoutY="60.0" prefHeight="20.0" prefWidth="38.0" styleClass="centrado" stylesheets="@../CSS/style.css" text="PRO" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

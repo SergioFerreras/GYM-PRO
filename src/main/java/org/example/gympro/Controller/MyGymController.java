@@ -7,8 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.example.gympro.Clases.User;
 
 public class MyGymController {
+    User user;
     @FXML
     private Button backButton;
     @FXML
@@ -34,5 +36,13 @@ public class MyGymController {
             Stage stage = (Stage) crossButton.getScene().getWindow();
             stage.close();
         }
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

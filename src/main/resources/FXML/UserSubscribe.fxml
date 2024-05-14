@@ -17,7 +17,7 @@
                 <BoxBlur />
             </effect>
         </ImageView>
-        <Button layoutX="102.0" layoutY="612.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="213.0" styleClass="buttonColorVerde" stylesheets="@../CSS/ButtonsStyle.css" text="Subscribe Now">
+        <Button fx:id="suscribeNowButton" layoutX="102.0" layoutY="612.0" mnemonicParsing="false" onAction="#suscribirse" prefHeight="40.0" prefWidth="213.0" styleClass="buttonColorVerde" stylesheets="@../CSS/ButtonsStyle.css" text="Subscribe Now">
             <font>
                 <Font size="16.0" />
             </font>
@@ -29,12 +29,12 @@
                 <Font name="Arial Bold" size="45.0" />
             </font>
         </Label>
-        <Label layoutX="35.0" layoutY="182.0" text="Subscribe to access the best gym in the world" textFill="WHITE">
+        <Label layoutX="32.0" layoutY="244.0" text="Subscribe to have unlimited access " textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="16.0" />
             </font>
         </Label>
-      <RadioButton layoutX="65.0" layoutY="373.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="265.0" styleClass="subButton" stylesheets="@../CSS/ButtonsStyle.css">
+      <RadioButton fx:id="monthlyRButton" layoutX="65.0" layoutY="373.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="265.0" styleClass="subButton" stylesheets="@../CSS/ButtonsStyle.css">
          <graphic>
               <Pane accessibleRole="RADIO_BUTTON" prefHeight="68.0" prefWidth="249.0">
                   <children>
@@ -71,7 +71,7 @@
             <ToggleGroup fx:id="SelectButton" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="65.0" layoutY="445.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="265.0" styleClass="subButton" stylesheets="@../CSS/ButtonsStyle.css" toggleGroup="$SelectButton">
+      <RadioButton fx:id="threeMontsRButton" layoutX="65.0" layoutY="445.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="265.0" styleClass="subButton" stylesheets="@../CSS/ButtonsStyle.css" toggleGroup="$SelectButton">
          <graphic>
               <Pane accessibleRole="RADIO_BUTTON" prefHeight="52.0" prefWidth="249.0">
                   <children>
@@ -110,7 +110,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </RadioButton>
-      <RadioButton layoutX="65.0" layoutY="525.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="265.0" styleClass="subButton" stylesheets="@../CSS/ButtonsStyle.css" toggleGroup="$SelectButton">
+      <RadioButton fx:id="yearRButton" layoutX="65.0" layoutY="525.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="265.0" styleClass="subButton" stylesheets="@../CSS/ButtonsStyle.css" toggleGroup="$SelectButton">
          <graphic>
               <Pane accessibleRole="RADIO_BUTTON" prefHeight="52.0" prefWidth="249.0">
                   <children>
@@ -154,5 +154,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Label layoutX="32.0" layoutY="264.0" text="in the best gym in the world" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

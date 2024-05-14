@@ -17,13 +17,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //Codigos para comenzar con el primer FXML
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/WaitingPage.fxml"));
         Parent root = loader.load();
 
         Image icon = new Image(getClass().getResourceAsStream("/Elements/Icons/Logo.jpg"));
 
-        // Establece el icono de la aplicación
         primaryStage.getIcons().add(icon);
 
         WaitingPageController controller = loader.getController();
@@ -34,8 +32,6 @@ public class Main extends Application {
         primaryStage.setTitle("GYM-PRO");
         primaryStage.show();
 
-        /*Ponemos una espera igual que en el controller para cuando salga la nueva pagina
-        esta desapareca*/
         PauseTransition pause = new PauseTransition(Duration.seconds(4.80));
 
         pause.setOnFinished(event -> {

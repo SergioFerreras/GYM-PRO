@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="715.0" minWidth="100.0" prefHeight="161.0" prefWidth="415.0" styleClass="background-color" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gympro.Controller.SignUpConfirmController">
+    <children>
+      <ImageView fitHeight="519.0" fitWidth="423.0" layoutX="-8.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Elements/BackGrounds/FondoConfirm.png" />
+         </image>
+         <effect>
+            <BoxBlur iterations="2" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="78.0" fitWidth="268.0" layoutX="80.0" layoutY="215.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Elements/Buttons/POPUPRectangle.png" />
+         </image></ImageView>
+        <Button fx:id="crossButton" layoutX="380.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarVentana" prefHeight="0.0" prefWidth="16.0" styleClass="crossButton" stylesheets="@../CSS/ButtonsStyle.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <ImageView fitHeight="2.0" fitWidth="280.0" layoutX="71.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Elements/Icons/greyLine.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.49" />
+            </effect>
+        </ImageView>
+        <ImageView fitHeight="2.0" fitWidth="280.0" layoutX="71.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Elements/Icons/greyLine.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.49" />
+            </effect>
+        </ImageView>
+        <Label layoutX="66.0" layoutY="82.0" prefHeight="79.0" prefWidth="290.0" styleClass="centrado" stylesheets="@../CSS/style.css" text="CONFIRM" textFill="WHITE">
+            <font>
+                <Font name="Segoe UI Black" size="60.0" />
+            </font></Label>
+        <ImageView fitHeight="2.0" fitWidth="280.0" layoutX="71.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Elements/Icons/greyLine.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.49" />
+            </effect>
+        </ImageView>
+        <Label layoutX="78.0" layoutY="354.0" prefHeight="14.0" prefWidth="70.0" text="Name" textFill="#82c345">
+            <font>
+                <Font name="Segoe UI" size="11.0" />
+            </font>
+        </Label>
+        <Label fx:id="NameLabel" layoutX="78.0" layoutY="368.0" prefHeight="17.0" prefWidth="280.0" text="Steve" textAlignment="CENTER" textFill="WHITE" />
+        <Label layoutX="78.0" layoutY="391.0" prefHeight="14.0" prefWidth="70.0" text="Email" textFill="#82c345">
+            <font>
+                <Font name="Segoe UI" size="11.0" />
+            </font>
+        </Label>
+        <Label fx:id="EmailLabel" layoutX="78.0" layoutY="402.0" prefHeight="17.0" prefWidth="274.0" text="gymprouser@gmail.com" textAlignment="CENTER" textFill="WHITE" />
+        <ImageView fitHeight="2.0" fitWidth="79.0" layoutX="71.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Elements/Icons/greyLine.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.49" />
+            </effect>
+        </ImageView>
+        <Label layoutX="78.0" layoutY="431.0" prefHeight="14.0" prefWidth="59.0" text="Birth" textFill="#82c345">
+            <font>
+                <Font name="Segoe UI" size="11.0" />
+            </font>
+        </Label>
+        <Label fx:id="BirthLabel" layoutX="78.0" layoutY="446.0" prefHeight="17.0" prefWidth="70.0" text="09/11/2004" textAlignment="CENTER" textFill="WHITE" />
+        <ImageView fitHeight="1.0" fitWidth="86.0" layoutX="266.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Elements/Icons/greyLine.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.49" />
+            </effect>
+        </ImageView>
+        <Label layoutX="273.0" layoutY="431.0" prefHeight="14.0" prefWidth="59.0" text="Weight" textFill="#82c345">
+            <font>
+                <Font name="Segoe UI" size="11.0" />
+            </font>
+        </Label>
+        <Label fx:id="WeightLabel" layoutX="273.0" layoutY="446.0" prefHeight="17.0" prefWidth="70.0" text="105.30Kg" textAlignment="CENTER" textFill="WHITE" />
+        <ImageView fitHeight="2.0" fitWidth="79.0" layoutX="171.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Elements/Icons/greyLine.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.49" />
+            </effect>
+        </ImageView>
+        <Label layoutX="178.0" layoutY="431.0" prefHeight="14.0" prefWidth="52.0" text="Age" textFill="#82c345">
+            <font>
+                <Font name="Segoe UI" size="11.0" />
+            </font>
+        </Label>
+        <Label fx:id="AgeLabel" layoutX="178.0" layoutY="446.0" prefHeight="17.0" prefWidth="70.0" text="19 years" textAlignment="CENTER" textFill="WHITE" />
+        <ImageView fitHeight="1.0" fitWidth="181.0" layoutX="72.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Elements/Icons/greyLine.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.49" />
+            </effect>
+        </ImageView>
+        <Label layoutX="78.0" layoutY="472.0" prefHeight="14.0" prefWidth="59.0" text="Adress" textFill="#82c345">
+            <font>
+                <Font name="Segoe UI" size="11.0" />
+            </font>
+        </Label>
+        <Label fx:id="AdressLabel" layoutX="78.0" layoutY="486.0" prefHeight="17.0" prefWidth="156.0" text="calle azurita 2" textAlignment="CENTER" textFill="WHITE" />
+        <ImageView fitHeight="2.0" fitWidth="86.0" layoutX="266.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Elements/Icons/greyLine.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.49" />
+            </effect>
+        </ImageView>
+        <Label layoutX="273.0" layoutY="472.0" prefHeight="14.0" prefWidth="59.0" text="Postal code" textFill="#82c345">
+            <font>
+                <Font name="Segoe UI" size="11.0" />
+            </font>
+        </Label>
+        <Label fx:id="PostalCodeLabel" layoutX="273.0" layoutY="486.0" prefHeight="17.0" prefWidth="79.0" text="28260" textAlignment="CENTER" textFill="WHITE" />
+        <ImageView fitHeight="2.0" fitWidth="86.0" layoutX="75.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Elements/Icons/greyLine.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.49" />
+            </effect>
+        </ImageView>
+        <Label layoutX="78.0" layoutY="512.0" prefHeight="14.0" prefWidth="59.0" text="Telephone" textFill="#82c345">
+            <font>
+                <Font name="Segoe UI" size="11.0" />
+            </font>
+        </Label>
+        <Label fx:id="TelephoneLabel" layoutX="78.0" layoutY="526.0" prefHeight="17.0" prefWidth="86.0" text="620444578" textAlignment="CENTER" textFill="WHITE" />
+        <ImageView fitHeight="2.0" fitWidth="79.0" layoutX="178.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Elements/Icons/greyLine.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.49" />
+            </effect>
+        </ImageView>
+        <Label layoutX="178.0" layoutY="512.0" prefHeight="14.0" prefWidth="59.0" text="DNI" textFill="#82c345">
+            <font>
+                <Font name="Segoe UI" size="11.0" />
+            </font>
+        </Label>
+        <Label fx:id="DniLabel" layoutX="178.0" layoutY="526.0" prefHeight="17.0" prefWidth="79.0" text="54285988Z" textAlignment="CENTER" textFill="WHITE" />
+        <ImageView fitHeight="2.0" fitWidth="79.0" layoutX="273.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Elements/Icons/greyLine.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="0.49" />
+            </effect>
+        </ImageView>
+        <Label layoutX="273.0" layoutY="512.0" prefHeight="14.0" prefWidth="59.0" text="Genre" textFill="#82c345">
+            <font>
+                <Font name="Segoe UI" size="11.0" />
+            </font>
+        </Label>
+        <Label fx:id="GenreLabel" layoutX="273.0" layoutY="526.0" prefHeight="17.0" prefWidth="79.0" text="Male" textAlignment="CENTER" textFill="WHITE" />
+      <Label fx:id="UsernameLabel" layoutX="115.0" layoutY="318.0" prefHeight="17.0" prefWidth="186.0" styleClass="centrado" stylesheets="@../CSS/style.css" text="Sergio" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="74.0" layoutY="139.0" prefHeight="58.0" prefWidth="280.0" styleClass="centrado" stylesheets="@../CSS/style.css" text="Your personal data" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Black" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="130.0" layoutY="31.0" text="TO END THE REGISTER...." textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </Label>
+      <Button fx:id="ConfirmButton" layoutX="137.0" layoutY="594.0" mnemonicParsing="false" onAction="#confirmData" prefHeight="33.0" prefWidth="148.0" styleClass="buttonConfirmar" stylesheets="@../CSS/ButtonsStyle.css" text="Confirm Data">
+         <font>
+            <Font name="Arial Black" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="changeButton" layoutX="113.0" layoutY="646.0" mnemonicParsing="false" onAction="#gochange" prefHeight="25.0" prefWidth="195.0" styleClass="buttonCancelar" stylesheets="@../CSS/ButtonsStyle.css" text="I want to change somethig">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="89.0" layoutY="230.0" text="Confirm to complete the registration " textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="121.0" layoutY="240.0" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="239.0" prefHeight="34.0" prefWidth="245.0" text="and send the data to the database" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="263.0" text="Or change your personal data" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

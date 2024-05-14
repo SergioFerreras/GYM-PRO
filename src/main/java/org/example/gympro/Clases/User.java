@@ -1,95 +1,128 @@
 package org.example.gympro.Clases;
 
+import javafx.geometry.Pos;
+import org.example.gympro.Database.DataBaseController;
+import org.example.gympro.DateController.DateController;
+import org.example.gympro.Exceptions.*;
+
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
 public class User {
-    private String nombre_usuario;
-    private String apellidos_usuario;
-    private String email_usuario;
-    private int edad_usuario;
-    private double peso_usuario;
-    private LocalDate fecha_nacimiento_usuario;
-    private String direccion_usuario;
-    private String codigo_postal_usuario;
-    private String telefono_usuario;
-    private String dni_usuario;
-    private boolean es_hombre;
-    private boolean es_administrador;
-    private boolean esta_subscrito;
-    private String rutina_usuario;
-    private String username;
-    private String comoNosConoce;
-    private String contraseña;
+    int id_usuario;
+    String nombre_usuario;
+    String apellidos_usuario;
+    String email_usuario;
+    Double peso_usuario;
+    Date fecha_nacimiento_usuario;
+    String direccion_usuario;
+    String codigo_postal_usuario;
+    String telefono_usuario;
+    String dni_usuario;
+    Boolean es_hombre;
+    String username;
+    String comoNosConoce;
+    String contrasena;
+    int edad_usuario;
+    Boolean suscrito;
 
     public User() {
     }
 
-    public User(String username, String nombre, String apellidos, String email, LocalDate fechaNacimiento, double peso, String direccion, String codigoPostal, String telefono, String dni, boolean esHombre, boolean esAdministrador, boolean estaSubscrito, String rutina, String comoNosConoce, String contrasena) {
+    public User(int id_usuario, String nombre_usuario, String apellidos_usuario, String email_usuario, Double peso_usuario, Date fecha_nacimiento_usuario, String direccion_usuario, String codigo_postal_usuario, String telefono_usuario, String dni_usuario, Boolean es_hombre, String username, String comoNosConoce, String contrasena) throws Exception{
+        setId_usuario(id_usuario);
+        setNombre_usuario(nombre_usuario);
+        setApellidos_usuario(apellidos_usuario);
+        setEmail_usuario(email_usuario);
+        setPeso_usuario(peso_usuario);
+        setFecha_nacimiento_usuario(fecha_nacimiento_usuario);
+        setDireccion_usuario(direccion_usuario);
+        setCodigo_postal_usuario(codigo_postal_usuario);
+        setTelefono_usuario(telefono_usuario);
+        setDni_usuario(dni_usuario);
+        setEs_hombre(es_hombre);
         setUsername(username);
-        setNombre_usuario(nombre);
-        setApellidos_usuario(apellidos);
-        setEmail_usuario(email);
-        setFecha_nacimiento_usuario(fechaNacimiento);
-        setPeso_usuario(peso);
-        setDireccion_usuario(direccion);
-        setCodigo_postal_usuario(codigoPostal);
-        setTelefono_usuario(telefono);
-        setDni_usuario(dni);
-        setEs_hombre(esHombre);
-        setEs_administrador(esAdministrador);
-        setEsta_subscrito(estaSubscrito);
-        setRutina_usuario(rutina);
         setComoNosConoce(comoNosConoce);
-        setContraseña(contrasena);
+        setContrasena(contrasena);
+        setEdad_usuario(fecha_nacimiento_usuario);
+        setSuscrito();
     }
+
     public String getNombre_usuario() {
         return nombre_usuario;
     }
 
-    public void setNombre_usuario(String nombre_usuario) {
-        this.nombre_usuario = nombre_usuario;
+    public void setNombre_usuario(String nombre_usuario) throws NameIllegalException{
+        if (nombre_usuario.matches("[a-zA-Z]+")) {
+            this.nombre_usuario = nombre_usuario;
+        } else {
+            throw new NameIllegalException("El nombre no puede contener numeros");
+        }
     }
+
 
     public String getApellidos_usuario() {
         return apellidos_usuario;
     }
 
-    public void setApellidos_usuario(String apellidos_usuario) {
-        this.apellidos_usuario = apellidos_usuario;
+    public void setApellidos_usuario(String apellidos_usuario) throws SurnameIllegalException {
+        if (apellidos_usuario.matches("[a-zA-Z\\s]+")) {
+            this.apellidos_usuario = apellidos_usuario;
+        } else {
+            throw new SurnameIllegalException("El apellido no puede contener números ni caracteres especiales");
+        }
     }
 
     public String getEmail_usuario() {
         return email_usuario;
     }
 
-    public void setEmail_usuario(String email_usuario) {
-        this.email_usuario = email_usuario;
+    public void setEmail_usuario(String email_usuario) throws EmailIllegalException {
+        String regex = "^(.+)@(.+)$";
+
+        if (email_usuario.matches(regex)) {
+            this.email_usuario = email_usuario;
+        } else {
+            throw new EmailIllegalException("El correo electrónico tiene un formato inválido.");
+        }
     }
+
 
     public int getEdad_usuario() {
         return edad_usuario;
     }
 
-    public void setEdad_usuario(int edad_usuario) {
-        this.edad_usuario = edad_usuario;
+    public void setEdad_usuario(Date fechaNacimiento) {
+        if (fechaNacimiento==null){
+            this.edad_usuario= 0;
+        }else {
+            DateController dc=new DateController();
+            Date fechaActual = dc.getFechaActual();
+
+            long diferenciaEnMs = fechaActual.getTime() - fechaNacimiento.getTime();
+
+            long años = diferenciaEnMs / 1000 / 60 / 60 / 24 / 365;
+
+            this.edad_usuario=(int) años;
+        }
     }
 
     public double getPeso_usuario() {
         return peso_usuario;
     }
 
-    public void setPeso_usuario(double peso_usuario) {
-        this.peso_usuario = peso_usuario;
-    }
+    public void setPeso_usuario(double peso_usuario) throws WeightIllegalException{
+        String pesoStr = String.valueOf(peso_usuario);
 
-    public LocalDate getFecha_nacimiento_usuario() {
-        return fecha_nacimiento_usuario;
-    }
+        String regex = "^\\d+(\\.\\d{1,2})?$";
 
-    public void setFecha_nacimiento_usuario(LocalDate fecha_nacimiento_usuario) {
-        this.fecha_nacimiento_usuario = fecha_nacimiento_usuario;
+        if (pesoStr.matches(regex)) {
+            this.peso_usuario = peso_usuario;
+        } else {
+          throw new WeightIllegalException("El peso tiene un formato inválido, puede tener uno o dos decimales");
+        }
     }
 
     public String getDireccion_usuario() {
@@ -97,71 +130,69 @@ public class User {
     }
 
     public void setDireccion_usuario(String direccion_usuario) {
-        this.direccion_usuario = direccion_usuario;
+        if (direccion_usuario==null){
+            throw new NullPointerException("La direccion no puede estar vacia");
+        }else {
+            this.direccion_usuario = direccion_usuario;
+        }
+
     }
 
     public String getCodigo_postal_usuario() {
         return codigo_postal_usuario;
     }
 
-    public void setCodigo_postal_usuario(String codigo_postal_usuario) {
-        this.codigo_postal_usuario = codigo_postal_usuario;
+    public void setCodigo_postal_usuario(String codigo_postal_usuario) throws PostalCodeIllegalException {
+        String regex = "^\\d{5}$";
+
+        if (codigo_postal_usuario.matches(regex)) {
+            this.codigo_postal_usuario = codigo_postal_usuario;
+        } else {
+            throw new PostalCodeIllegalException("El código postal tiene un formato inválido tiene que tener 5 dijitos.");
+        }
     }
 
     public String getTelefono_usuario() {
         return telefono_usuario;
     }
 
-    public void setTelefono_usuario(String telefono_usuario) {
-        this.telefono_usuario = telefono_usuario;
+    public void setTelefono_usuario(String telefono_usuario) throws TelephoneIllegalException{
+         String regex = "^\\d{9}$";
+
+        if (telefono_usuario.matches(regex)) {
+            this.telefono_usuario = telefono_usuario;
+        } else {
+             System.out.println("El número de teléfono tiene un formato inválido. Debe contener exactamente 9 dígitos numéricos.");
+             throw new TelephoneIllegalException("El número de teléfono tiene un formato inválido, tiene que tener 9 numeros.");
+        }
     }
+
 
     public String getDni_usuario() {
         return dni_usuario;
     }
 
-    public void setDni_usuario(String dni_usuario) {
-        this.dni_usuario = dni_usuario;
+    public void setDni_usuario(String dni_usuario) throws DNIIllegalException {
+        String regex = "^\\d{8}[A-Za-z]$";
+
+        if (dni_usuario.matches(regex)) {
+            this.dni_usuario = dni_usuario.toUpperCase();
+        } else {
+            throw new DNIIllegalException("El DNI tiene un formato inválido, tiene que tener 8 numeros y una letra.");
+        }
     }
 
-    public boolean isEs_hombre() {
-        return es_hombre;
-    }
-
-    public void setEs_hombre(boolean es_hombre) {
-        this.es_hombre = es_hombre;
-    }
-
-    public boolean isEs_administrador() {
-        return es_administrador;
-    }
-
-    public void setEs_administrador(boolean es_administrador) {
-        this.es_administrador = es_administrador;
-    }
-
-    public boolean isEsta_subscrito() {
-        return esta_subscrito;
-    }
-
-    public void setEsta_subscrito(boolean esta_subscrito) {
-        this.esta_subscrito = esta_subscrito;
-    }
-
-    public String getRutina_usuario() {
-        return rutina_usuario;
-    }
-
-    public void setRutina_usuario(String rutina_usuario) {
-        this.rutina_usuario = rutina_usuario;
-    }
 
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        if (username==null){
+            throw new NullPointerException("El campo username tiene que ser relleno");
+        }else {
+            this.username = username;
+        }
     }
 
     public String getComoNosConoce() {
@@ -169,24 +200,97 @@ public class User {
     }
 
     public void setComoNosConoce(String comoNosConoce) {
-        this.comoNosConoce = comoNosConoce;
+            this.comoNosConoce = comoNosConoce;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public int getId_usuario() {
+        return id_usuario;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+
+    public void setFecha_nacimiento_usuario(Date fecha_nacimiento_usuario) throws AGEIllegalException{
+        DateController dc=new DateController();
+        Date fechaActual = dc.getFechaActual();
+
+        long diferenciaEnMs = fechaActual.getTime() - fecha_nacimiento_usuario.getTime();
+
+        long años = diferenciaEnMs / 1000 / 60 / 60 / 24 / 365;
+
+        int nalos=(int) años;
+
+        if (años>=18){
+            this.fecha_nacimiento_usuario = fecha_nacimiento_usuario;
+        } else {
+            throw new AGEIllegalException("Debes de ser mayor de 18 años");
+        }
+
+
+    }
+
+    public Date getFecha_nacimiento_usuario() {
+        return fecha_nacimiento_usuario;
+    }
+
+    public Boolean is_hombre() {
+        return es_hombre;
+    }
+
+    public void setEs_hombre(Boolean es_hombre) {
+            this.es_hombre = es_hombre;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        if (contrasena==null){
+            throw new NullPointerException("La contraseña no puede ser nula");
+        }else{
+            this.contrasena = contrasena;
+        }
+    }
+
+    public String GenereToString(){
+        boolean genre=is_hombre();
+        if (genre){
+            return "Male";
+        }else{
+            return "Famale";
+        }
+    }
+
+    public Boolean getSuscrito() {
+        return suscrito;
+    }
+
+    public void setSuscrito() {
+        DataBaseController dbc=new DataBaseController();
+        DateController dc=new DateController();
+
+        Date fechaFin=dbc.cogerFechaFinSuscripcion(getUsername());
+        Date fechaActual=dc.getFechaActual();
+
+        if (fechaFin == null) {
+            this.suscrito = false;
+        } else if (fechaFin != null && fechaFin.before(fechaActual)) {
+            this.suscrito = false;
+        } else {
+            this.suscrito = true;
+        }
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "nombre_usuario='" + nombre_usuario + '\'' +
+                "id_usuario=" + id_usuario +
+                ", nombre_usuario='" + nombre_usuario + '\'' +
                 ", apellidos_usuario='" + apellidos_usuario + '\'' +
                 ", email_usuario='" + email_usuario + '\'' +
-                ", edad_usuario=" + edad_usuario +
                 ", peso_usuario=" + peso_usuario +
                 ", fecha_nacimiento_usuario=" + fecha_nacimiento_usuario +
                 ", direccion_usuario='" + direccion_usuario + '\'' +
@@ -194,12 +298,11 @@ public class User {
                 ", telefono_usuario='" + telefono_usuario + '\'' +
                 ", dni_usuario='" + dni_usuario + '\'' +
                 ", es_hombre=" + es_hombre +
-                ", es_administrador=" + es_administrador +
-                ", esta_subscrito=" + esta_subscrito +
-                ", rutina_usuario='" + rutina_usuario + '\'' +
                 ", username='" + username + '\'' +
                 ", comoNosConoce='" + comoNosConoce + '\'' +
-                ", contraseña='" + contraseña + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                ", edad_usuario=" + edad_usuario +
+                ", suscrito=" + suscrito +
                 '}';
     }
 }

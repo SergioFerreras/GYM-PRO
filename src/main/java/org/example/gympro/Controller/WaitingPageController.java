@@ -30,14 +30,11 @@ public class WaitingPageController {
         pause.play();
     }
 
-    //Metodo para cargar el siguiente FXML
     public void cargarSiguienteFXML() {
         try {
-            // Cargar el nuevo FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/UserLogin.fxml"));
             Parent root = loader.load();
 
-            // Obtener el controlador del nuevo FXML
             UserLoginController controller = loader.getController();
 
             Image icon = new Image(getClass().getResourceAsStream("/Elements/Icons/Logo.jpg"));
@@ -49,9 +46,7 @@ public class WaitingPageController {
             stage.setScene(scene);
             stage.setTitle("GYM-PRO");
 
-            // Mostrar la nueva ventana
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
