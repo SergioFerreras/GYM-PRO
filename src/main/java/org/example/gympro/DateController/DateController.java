@@ -69,7 +69,7 @@ public class DateController {
         LocalDate date = LocalDate.now();
         DayOfWeek dayOfWeek = date.getDayOfWeek();
         int dayOfWeekNumber = dayOfWeek.getValue();
-        return dayOfWeekNumber; // Devuelve directamente el valor del día de la semana
+        return dayOfWeekNumber;
     }
 
     public static void main(String[] args){

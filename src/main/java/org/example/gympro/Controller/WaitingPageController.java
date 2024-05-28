@@ -16,10 +16,6 @@ import java.io.IOException;
 
 public class WaitingPageController {
     @FXML
-    /*
-    Este initialize lo que hace es mantener la pantalla durante 5 segundos y
-    despues abrira la nueva pagina
-     */
     private void initialize() {
         PauseTransition pause = new PauseTransition(Duration.seconds(5));
 

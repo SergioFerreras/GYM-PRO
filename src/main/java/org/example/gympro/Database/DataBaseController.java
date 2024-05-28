@@ -379,7 +379,6 @@ public class DataBaseController {
         try {
             conn = DriverManager.getConnection(getUrlDB(), getUser(), getPassword());
 
-            // Obtener id_usuario
             String sqlGetUserId = "SELECT id_usuario FROM Usuario WHERE username = ?";
             pstmt = conn.prepareStatement(sqlGetUserId);
             pstmt.setString(1, username);
@@ -394,7 +393,6 @@ public class DataBaseController {
             rs.close();
             pstmt.close();
 
-            // Obtener id_actividad
             String sqlGetActivityId = "SELECT id_actividad FROM Actividades WHERE nombre = ?";
             pstmt = conn.prepareStatement(sqlGetActivityId);
             pstmt.setString(1, activityName);
@@ -409,7 +407,6 @@ public class DataBaseController {
             rs.close();
             pstmt.close();
 
-            // Obtener id_sala
             String sqlGetRoomId = "SELECT id_sala FROM Salas WHERE nombre = ?";
             pstmt = conn.prepareStatement(sqlGetRoomId);
             pstmt.setString(1, roomName);
@@ -424,7 +421,6 @@ public class DataBaseController {
             rs.close();
             pstmt.close();
 
-            // Verificar participantes en la sala y actividad
             String sqlCheckParticipants = "SELECT participantes_" + bodyPart.toLowerCase() + " FROM SalaActividad WHERE id_sala = ? AND id_actividad = ?";
             pstmt = conn.prepareStatement(sqlCheckParticipants);
             pstmt.setInt(1, roomId);
@@ -433,7 +429,7 @@ public class DataBaseController {
 
             if (rs.next()) {
                 int participants = rs.getInt("participantes_" + bodyPart.toLowerCase());
-                if (participants >= 15) {  // Cambio a 15, según lo solicitado
+                if (participants >= 15) {
                     System.out.println("La sala está llena para esa actividad y ese músculo.");
                     return;
                 }
@@ -441,10 +437,8 @@ public class DataBaseController {
             rs.close();
             pstmt.close();
 
-            // Iniciar transacción
             conn.setAutoCommit(false);
 
-            // Eliminar todas las reservas anteriores del usuario y actualizar los participantes
             String sqlGetExistingReservations = "SELECT id_reserva, parte_cuerpo, id_actividad, id_sala FROM Reservas WHERE id_usuario = ?";
             pstmt = conn.prepareStatement(sqlGetExistingReservations);
             pstmt.setInt(1, userId);
@@ -456,14 +450,12 @@ public class DataBaseController {
                 int previousActivityId = rs.getInt("id_actividad");
                 int previousRoomId = rs.getInt("id_sala");
 
-                // Eliminar reserva anterior
                 String sqlDeleteReservation = "DELETE FROM Reservas WHERE id_reserva = ?";
                 PreparedStatement pstmtDelete = conn.prepareStatement(sqlDeleteReservation);
                 pstmtDelete.setInt(1, previousReservationId);
                 pstmtDelete.executeUpdate();
                 pstmtDelete.close();
 
-                // Actualizar contadores de participantes de la actividad anterior
                 String sqlUpdatePreviousParticipants = "UPDATE SalaActividad SET participantes_" + previousBodyPart.toLowerCase() + " = participantes_" + previousBodyPart.toLowerCase() + " - 1 WHERE id_sala = ? AND id_actividad = ?";
                 PreparedStatement pstmtUpdate = conn.prepareStatement(sqlUpdatePreviousParticipants);
                 pstmtUpdate.setInt(1, previousRoomId);
@@ -474,7 +466,6 @@ public class DataBaseController {
             rs.close();
             pstmt.close();
 
-            // Insertar nueva reserva
             String sqlInsertReservation = "INSERT INTO Reservas (id_usuario, id_actividad, id_sala, parte_cuerpo) VALUES (?, ?, ?, ?)";
             pstmt = conn.prepareStatement(sqlInsertReservation);
             pstmt.setInt(1, userId);
@@ -494,7 +485,6 @@ public class DataBaseController {
                 pstmt.executeUpdate();
                 pstmt.close();
 
-                // Confirmar transacción
                 conn.commit();
             } else {
                 System.out.println("Error al realizar la reserva.");
@@ -601,10 +591,8 @@ public class DataBaseController {
         ResultSet rs = null;
 
         try {
-            // Establecer la conexión con la base de datos
             conn = DriverManager.getConnection(getUrlDB(), getUser(), getPassword());
 
-            // Obtener el ID del usuario a partir del nombre de usuario
             String sqlGetUserId = "SELECT id_usuario FROM Usuario WHERE username = ?";
             pstmt = conn.prepareStatement(sqlGetUserId);
             pstmt.setString(1, username);
@@ -619,7 +607,6 @@ public class DataBaseController {
             rs.close();
             pstmt.close();
 
-            // Obtener el nombre de la actividad reservada por el usuario
             String sqlGetActivityName = "SELECT a.nombre FROM Reservas r " +
                     "JOIN Actividades a ON r.id_actividad = a.id_actividad " +
                     "WHERE r.id_usuario = ?";
