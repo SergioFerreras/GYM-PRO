@@ -1,7 +1,9 @@
 package org.example.gympro.Clases;
 
 import org.example.gympro.Database.DataBaseController;
+import org.example.gympro.DateController.DateController;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,6 +84,33 @@ public class Rutina {
         }
     }
 
+    public String sacarParteCuerpoPorDiaHoy() {
+        DateController dateController=new DateController();
+        int diahoy=dateController.getDayOfWeekNumber();
+
+        List<String> nombresDeEjercicios = getListaEjercicios();
+
+        if (diahoy <= nombresDeEjercicios.size()) {
+            String ejercicio = nombresDeEjercicios.get(diahoy-1);
+            return ejercicio;
+        } else {
+            return "mal";
+        }
+    }
+
+
+    public String devolverParteCuerpoDDBBController(String username){
+        DataBaseController dbc=new DataBaseController();
+        Rutina rutina=dbc.obtenerRutinasUsuario(username);
+        rutina.llenarListaEjercicios();
+        String pcuerpo= rutina.sacarParteCuerpoPorDiaHoy();
+        if (pcuerpo.equals("mal")|pcuerpo.equals(null)|pcuerpo.equals("")){
+            return null;
+        }else {
+            return pcuerpo;
+        }
+    }
+
     @Override
     public String toString() {
         return "Rutina{" +
@@ -92,12 +121,21 @@ public class Rutina {
     }
 
     public static void main(String[] args){
-        DataBaseController dbc=new DataBaseController();
+        /*DataBaseController dbc=new DataBaseController();
         Rutina rutina=dbc.obtenerRutinasUsuario("sergio");
 
         System.out.println(rutina.toString());
         rutina.llenarListaEjercicios();
         rutina.leerlista();
+
+        rutina.sacarParteCuerpoPorDiaHoy();*/
+
+
+        DataBaseController dbc=new DataBaseController();
+        Rutina rutina=dbc.obtenerRutinasUsuario("sergio");
+        rutina.llenarListaEjercicios();
+        System.out.println(rutina.sacarParteCuerpoPorDiaHoy());
+
     }
 }
 

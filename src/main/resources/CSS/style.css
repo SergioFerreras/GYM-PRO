@@ -20,7 +20,7 @@
 .text-field:focused {
     -fx-background-color: transparent;
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #82C345;
+        -fx-border-color: #82C345;
     -fx-text-fill: #b0b0b0;
 }
 
@@ -108,6 +108,13 @@
     white-space: pre-wrap; /* Mantiene el formato del texto original */
 }
 
+.custom-progress-bar .bar {
+    -fx-background-color: #82C345; /* Color de la barra de progreso */
+}
+
+.custom-progress-bar .track {
+    -fx-background-color: #595959; /* Color de fondo de la barra */
+}
 
 
 

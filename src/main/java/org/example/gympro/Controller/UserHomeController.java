@@ -9,7 +9,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.example.gympro.Clases.Rutina;
 import org.example.gympro.Clases.User;
+import org.example.gympro.Database.DataBaseController;
 import org.example.gympro.DateController.DateController;
 
 import java.sql.Time;
@@ -43,6 +45,9 @@ public class UserHomeController {
 
     @FXML
     private Pane PanelUnsuscribed;
+
+    @FXML
+    private Pane bloqueoReserva;
 
     @FXML
     private void cerrarVentana(ActionEvent event) {
@@ -80,6 +85,9 @@ public class UserHomeController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
             Parent otraPaginaParent = loader.load();
             Scene otraPaginaScene = new Scene(otraPaginaParent);
+
+            MyGymController controller=loader.getController();
+            controller.setUser(getUser());
 
             Stage escenarioActual = (Stage) myGymButton.getScene().getWindow();
             escenarioActual.setScene(otraPaginaScene);
@@ -149,6 +157,9 @@ public class UserHomeController {
             Parent otraPaginaParent = loader.load();
             Scene otraPaginaScene = new Scene(otraPaginaParent);
 
+            ReserveActivityMorningController controller=loader.getController();
+            controller.setUser(getUser());
+
             Stage escenarioActual = (Stage) reserveActivityButton.getScene().getWindow();
             escenarioActual.setScene(otraPaginaScene);
         } catch (Exception e) {
@@ -172,6 +183,14 @@ public class UserHomeController {
             myRutinesButton.setDisable(true);
             myGymButton.setDisable(true);
             PanelUnsuscribed.setVisible(true);
+        }else{
+            DataBaseController dbc=new DataBaseController();
+            Rutina rutina=dbc.obtenerRutinasUsuario(getUser().getUsername());
+
+            if (rutina==null){
+                bloqueoReserva.setVisible(true);
+                reserveActivityButton.setDisable(true);
+            }
         }
     }
 

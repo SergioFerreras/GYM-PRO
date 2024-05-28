@@ -24,7 +24,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="35.0" layoutY="177.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+        <Button fx:id="chestBtt" layoutX="50.0" layoutY="160.0" mnemonicParsing="false" onAction="#irchestexcercises" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -61,7 +61,7 @@
             <Font name="Segoe UI Black" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="230.0" layoutY="177.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button fx:id="legBtt" layoutX="230.0" layoutY="160.0" mnemonicParsing="false" onAction="#irLeg" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -93,7 +93,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button layoutX="35.0" layoutY="367.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button fx:id="armsBtt" layoutX="50.0" layoutY="345.0" mnemonicParsing="false" onAction="#irArms" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -125,7 +125,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button layoutX="230.0" layoutY="367.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button fx:id="backBtt" layoutX="230.0" layoutY="345.0" mnemonicParsing="false" onAction="#irBack" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -157,7 +157,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button layoutX="35.0" layoutY="537.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button fx:id="shoulderBtt" layoutX="50.0" layoutY="530.0" mnemonicParsing="false" onAction="#irShoulder" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -189,7 +189,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button layoutX="230.0" layoutY="537.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+      <Button fx:id="absBtt" layoutX="230.0" layoutY="530.0" mnemonicParsing="false" onAction="#irAbs" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

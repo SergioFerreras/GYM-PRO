@@ -371,10 +371,289 @@ public class DataBaseController {
     }
 
 
+    public void reserveActivity(String username, String activityName, String roomName, String bodyPart) throws SQLException {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DriverManager.getConnection(getUrlDB(), getUser(), getPassword());
+
+            // Obtener id_usuario
+            String sqlGetUserId = "SELECT id_usuario FROM Usuario WHERE username = ?";
+            pstmt = conn.prepareStatement(sqlGetUserId);
+            pstmt.setString(1, username);
+            rs = pstmt.executeQuery();
+
+            if (!rs.next()) {
+                System.out.println("Usuario no encontrado.");
+                return;
+            }
+
+            int userId = rs.getInt("id_usuario");
+            rs.close();
+            pstmt.close();
+
+            // Obtener id_actividad
+            String sqlGetActivityId = "SELECT id_actividad FROM Actividades WHERE nombre = ?";
+            pstmt = conn.prepareStatement(sqlGetActivityId);
+            pstmt.setString(1, activityName);
+            rs = pstmt.executeQuery();
+
+            if (!rs.next()) {
+                System.out.println("Actividad no encontrada.");
+                return;
+            }
+
+            int activityId = rs.getInt("id_actividad");
+            rs.close();
+            pstmt.close();
+
+            // Obtener id_sala
+            String sqlGetRoomId = "SELECT id_sala FROM Salas WHERE nombre = ?";
+            pstmt = conn.prepareStatement(sqlGetRoomId);
+            pstmt.setString(1, roomName);
+            rs = pstmt.executeQuery();
+
+            if (!rs.next()) {
+                System.out.println("Sala no encontrada.");
+                return;
+            }
+
+            int roomId = rs.getInt("id_sala");
+            rs.close();
+            pstmt.close();
+
+            // Verificar participantes en la sala y actividad
+            String sqlCheckParticipants = "SELECT participantes_" + bodyPart.toLowerCase() + " FROM SalaActividad WHERE id_sala = ? AND id_actividad = ?";
+            pstmt = conn.prepareStatement(sqlCheckParticipants);
+            pstmt.setInt(1, roomId);
+            pstmt.setInt(2, activityId);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                int participants = rs.getInt("participantes_" + bodyPart.toLowerCase());
+                if (participants >= 15) {  // Cambio a 15, según lo solicitado
+                    System.out.println("La sala está llena para esa actividad y ese músculo.");
+                    return;
+                }
+            }
+            rs.close();
+            pstmt.close();
+
+            // Iniciar transacción
+            conn.setAutoCommit(false);
+
+            // Eliminar todas las reservas anteriores del usuario y actualizar los participantes
+            String sqlGetExistingReservations = "SELECT id_reserva, parte_cuerpo, id_actividad, id_sala FROM Reservas WHERE id_usuario = ?";
+            pstmt = conn.prepareStatement(sqlGetExistingReservations);
+            pstmt.setInt(1, userId);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                int previousReservationId = rs.getInt("id_reserva");
+                String previousBodyPart = rs.getString("parte_cuerpo");
+                int previousActivityId = rs.getInt("id_actividad");
+                int previousRoomId = rs.getInt("id_sala");
+
+                // Eliminar reserva anterior
+                String sqlDeleteReservation = "DELETE FROM Reservas WHERE id_reserva = ?";
+                PreparedStatement pstmtDelete = conn.prepareStatement(sqlDeleteReservation);
+                pstmtDelete.setInt(1, previousReservationId);
+                pstmtDelete.executeUpdate();
+                pstmtDelete.close();
+
+                // Actualizar contadores de participantes de la actividad anterior
+                String sqlUpdatePreviousParticipants = "UPDATE SalaActividad SET participantes_" + previousBodyPart.toLowerCase() + " = participantes_" + previousBodyPart.toLowerCase() + " - 1 WHERE id_sala = ? AND id_actividad = ?";
+                PreparedStatement pstmtUpdate = conn.prepareStatement(sqlUpdatePreviousParticipants);
+                pstmtUpdate.setInt(1, previousRoomId);
+                pstmtUpdate.setInt(2, previousActivityId);
+                pstmtUpdate.executeUpdate();
+                pstmtUpdate.close();
+            }
+            rs.close();
+            pstmt.close();
+
+            // Insertar nueva reserva
+            String sqlInsertReservation = "INSERT INTO Reservas (id_usuario, id_actividad, id_sala, parte_cuerpo) VALUES (?, ?, ?, ?)";
+            pstmt = conn.prepareStatement(sqlInsertReservation);
+            pstmt.setInt(1, userId);
+            pstmt.setInt(2, activityId);
+            pstmt.setInt(3, roomId);
+            pstmt.setString(4, bodyPart);
+            int rowsInserted = pstmt.executeUpdate();
+            pstmt.close();
+
+            if (rowsInserted > 0) {
+                System.out.println("Reserva realizada con éxito.");
+
+                String sqlUpdateParticipants = "UPDATE SalaActividad SET participantes_" + bodyPart.toLowerCase() + " = participantes_" + bodyPart.toLowerCase() + " + 1 WHERE id_sala = ? AND id_actividad = ?";
+                pstmt = conn.prepareStatement(sqlUpdateParticipants);
+                pstmt.setInt(1, roomId);
+                pstmt.setInt(2, activityId);
+                pstmt.executeUpdate();
+                pstmt.close();
+
+                // Confirmar transacción
+                conn.commit();
+            } else {
+                System.out.println("Error al realizar la reserva.");
+                conn.rollback();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            if (conn != null) {
+                conn.rollback();
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstmt != null) {
+                pstmt.close();
+            }
+            if (conn != null) {
+                conn.setAutoCommit(true);
+                conn.close();
+            }
+        }
+    }
+
+
+    public static boolean checkAvailability(String username, String activityName, String bodyPart) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DriverManager.getConnection(getUrlDB(), getUser(), getPassword());
+
+            String sqlGetUserId = "SELECT id_usuario FROM Usuario WHERE username = ?";
+            pstmt = conn.prepareStatement(sqlGetUserId);
+            pstmt.setString(1, username);
+            rs = pstmt.executeQuery();
+
+            if (!rs.next()) {
+                System.out.println("Usuario no encontrado.");
+                return false;
+            }
+
+            int userId = rs.getInt("id_usuario");
+            rs.close();
+            pstmt.close();
+
+            String sqlGetActivityId = "SELECT id_actividad FROM Actividades WHERE nombre = ?";
+            pstmt = conn.prepareStatement(sqlGetActivityId);
+            pstmt.setString(1, activityName);
+            rs = pstmt.executeQuery();
+
+            if (!rs.next()) {
+                System.out.println("Actividad no encontrada.");
+                return false;
+            }
+
+            int activityId = rs.getInt("id_actividad");
+            rs.close();
+            pstmt.close();
+
+            return isActivityForMuscle(conn, activityId, bodyPart);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static boolean isActivityForMuscle(Connection conn, int activityId, String bodyPart) throws SQLException {
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        String sqlCheckMuscle = "SELECT id_actividad FROM SalaActividad WHERE id_actividad = ? AND participantes_" + bodyPart.toLowerCase() + " < 15";
+        pstmt = conn.prepareStatement(sqlCheckMuscle);
+        pstmt.setInt(1, activityId);
+        rs = pstmt.executeQuery();
+
+        boolean available = rs.next();
+        rs.close();
+        pstmt.close();
+
+        return available;
+    }
+
+    public String getReservedActivityByUsername(String username) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Establecer la conexión con la base de datos
+            conn = DriverManager.getConnection(getUrlDB(), getUser(), getPassword());
+
+            // Obtener el ID del usuario a partir del nombre de usuario
+            String sqlGetUserId = "SELECT id_usuario FROM Usuario WHERE username = ?";
+            pstmt = conn.prepareStatement(sqlGetUserId);
+            pstmt.setString(1, username);
+            rs = pstmt.executeQuery();
+
+            if (!rs.next()) {
+                System.out.println("Usuario no encontrado.");
+                return null;
+            }
+
+            int userId = rs.getInt("id_usuario");
+            rs.close();
+            pstmt.close();
+
+            // Obtener el nombre de la actividad reservada por el usuario
+            String sqlGetActivityName = "SELECT a.nombre FROM Reservas r " +
+                    "JOIN Actividades a ON r.id_actividad = a.id_actividad " +
+                    "WHERE r.id_usuario = ?";
+            pstmt = conn.prepareStatement(sqlGetActivityName);
+            pstmt.setInt(1, userId);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getString("nombre");
+            } else {
+                System.out.println("No hay reservas para este usuario.");
+                return null;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
 
     public static void main(String[]args) {
-
+        DataBaseController dbc=new DataBaseController();
+        String n=dbc.getReservedActivityByUsername("sergio");
+        System.out.println(n);
     }
 
 

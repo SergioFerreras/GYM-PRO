@@ -346,3 +346,33 @@ Elementos subscripcion
     -fx-text-fill: #cc1919;
     -fx-background-color: transparent;
 }
+
+
+
+.hour {
+    -fx-background-color: #4e82e5;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 20;
+}
+
+.hour:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #4e82e5;
+    -fx-background-radius: 20;
+}
+
+.hour:selected {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #4e82e5;
+    -fx-background-radius: 20;
+}
+
+.hour .radio {
+    -fx-shape: " ";
+    -fx-background-color: transparent;
+}
+
+.hour .radio > .dot {
+    -fx-shape: " ";
+    -fx-background-color: transparent;
+}

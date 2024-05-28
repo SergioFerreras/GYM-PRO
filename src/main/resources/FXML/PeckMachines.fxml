@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="715.0" minWidth="100.0" prefHeight="161.0" prefWidth="415.0" styleClass="background-color" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gympro.Controller.PeckMachinesController">
+<AnchorPane minHeight="715.0" minWidth="100.0" prefHeight="161.0" prefWidth="415.0" styleClass="background-color" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gympro.Controller.PeckMachinesController">
     <children>
         <ImageView fitHeight="65.0" fitWidth="78.0" layoutX="175.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -27,7 +24,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="138.0" layoutY="152.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+        <Button fx:id="peckdeckbutton1" layoutX="138.0" layoutY="152.0" mnemonicParsing="false" onAction="#irPeckDeckExplication" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -64,5 +61,69 @@
                 <Font name="Segoe UI Black" size="30.0" />
             </font>
         </Label>
+      <Button fx:id="peckdeckbutton2" layoutX="138.0" layoutY="338.0" mnemonicParsing="false" onAction="#irPeckDeckExplication2" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <Pane prefHeight="0.0" prefWidth="0.0">
+               <children>
+                  <ImageView fitHeight="152.0" fitWidth="140.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Elements/BackGrounds/pressbancaCard.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="-0.35" />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Label layoutX="2.0" layoutY="106.0" text="Chest Thrusts" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="2.0" layoutY="124.0" prefHeight="25.0" prefWidth="122.0" text="Click to see more info" textFill="#82c345">
+                     <font>
+                        <Font name="Segoe UI" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </graphic>
+      </Button>
+      <Button fx:id="peckdeckbutton3" layoutX="138.0" layoutY="525.0" mnemonicParsing="false" onAction="#irPeckDeckExplication3" prefHeight="158.0" prefWidth="140.0" styleClass="botonTransparente" stylesheets="@../CSS/ButtonsStyle.css" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <Pane prefHeight="0.0" prefWidth="0.0">
+               <children>
+                  <ImageView fitHeight="152.0" fitWidth="140.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Elements/BackGrounds/EmpujesCard.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="-0.35" />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Label layoutX="2.0" layoutY="106.0" text="Bench Press" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="2.0" layoutY="124.0" prefHeight="25.0" prefWidth="122.0" text="Click to see more info" textFill="#82c345">
+                     <font>
+                        <Font name="Segoe UI" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </graphic>
+      </Button>
     </children>
 </AnchorPane>

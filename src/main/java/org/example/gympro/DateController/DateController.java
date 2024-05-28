@@ -2,6 +2,8 @@ package org.example.gympro.DateController;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class DateController {
@@ -63,10 +65,18 @@ public class DateController {
         return fechaMesMas;
     }
 
+    public  int getDayOfWeekNumber() {
+        LocalDate date = LocalDate.now();
+        DayOfWeek dayOfWeek = date.getDayOfWeek();
+        int dayOfWeekNumber = dayOfWeek.getValue();
+        return dayOfWeekNumber; // Devuelve directamente el valor del día de la semana
+    }
+
     public static void main(String[] args){
-        System.out.println(getFechaActual());
+        /*System.out.println(getFechaActual());
         System.out.println(suscripcionUnMes(getFechaActual()));
         System.out.println(suscripcionTresMes(getFechaActual()));
-        System.out.println(suscripcionUnAño(getFechaActual()));
+        System.out.println(suscripcionUnAño(getFechaActual()));*/
+
     }
 }

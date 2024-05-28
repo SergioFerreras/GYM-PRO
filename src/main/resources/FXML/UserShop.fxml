@@ -2,12 +2,56 @@
 
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
 
 <AnchorPane minHeight="715.0" minWidth="100.0" prefHeight="161.0" prefWidth="415.0" styleClass="background-color" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.gympro.Controller.UserShopController">
     <children>
+      <WebView fx:id="webView" layoutY="-5.0" prefHeight="666.0" prefWidth="429.0" />
+      <Pane fx:id="pantallaCarga" layoutX="-9.0" layoutY="-32.0" prefHeight="702.0" prefWidth="432.0">
+         <children>
+            <ImageView fitHeight="740.0" fitWidth="432.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../Elements/Buttons/POPUPRectangle.png" />
+               </image>
+            </ImageView>
+            <ProgressBar fx:id="progressbar" layoutX="82.0" layoutY="548.0" prefHeight="25.0" prefWidth="282.0" progress="0.0" styleClass="custom-progress-bar" stylesheets="@../CSS/style.css" />
+            <ImageView fitHeight="412.0" fitWidth="432.0" layoutX="7.0" layoutY="28.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../Elements/BackGrounds/FONDOWEB.png" />
+               </image>
+               <effect>
+                  <BoxBlur />
+               </effect>
+            </ImageView>
+            <Label layoutX="134.0" layoutY="586.0" text="Wait while web is loading..." textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="242.0" text="Our web is loading," textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="42.0" />
+               </font>
+            </Label>
+            <Label fx:id="usernameLabel" layoutX="32.0" layoutY="282.0" text="Athlete" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="60.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="88.0" fitWidth="86.0" layoutX="180.0" layoutY="446.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../Elements/Icons/GYMPROCircle.png" />
+               </image>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="WAIT" />
+         </cursor>
+      </Pane>
         <ImageView fitHeight="76.0" fitWidth="432.0" layoutX="-8.0" layoutY="659.0" pickOnBounds="true" smooth="false">
             <image>
                 <Image url="@../Elements/Icons/generalBar.png" />
@@ -33,10 +77,5 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <Label layoutX="96.0" layoutY="232.0" text="COMING SOON" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Black" size="30.0" />
-         </font>
-      </Label>
     </children>
 </AnchorPane>

@@ -4,6 +4,7 @@ module org.example.gympro {
     requires javafx.graphics;
     requires java.sql;
     requires java.mail;
+    requires javafx.web;
 
 
     opens org.example.gympro to javafx.fxml;
